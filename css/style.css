@@ -1,0 +1,318 @@
+/* ================= RESET E IMPORTS ================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Orbitron:wght@600&family=Roboto+Mono&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+
+/* ===== VARIÁVEIS ===== */
+:root {
+  --bg: #0B0C1E;
+  --bg-card: #121A2C;
+  --text: #EAEAEA;
+  --text-secondary: #B0B0B0;
+  --accent: #00b4ff;
+  --accent-2: #6cfaff;
+  --accent-warm: #FF8C00;
+}
+
+/* ===== GERAL ===== */
+html, body { background-color: var(--bg); color: var(--text); height: 100%; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+/* ===== HEADER ===== */
+header { position: fixed; top: 0; left: 0; width: 100%; background-color: rgba(18, 26, 40, 0.92); padding: 0.8rem 2%; z-index: 1000; box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5); border-bottom: 1px solid rgba(0,180,255,0.06); }
+header nav ul { display: flex; justify-content: center; gap: 2rem; list-style: none; }
+header nav ul li a { text-decoration: none; color: var(--accent-warm); font-weight: 600; font-family: 'Orbitron', sans-serif; transition: color 0.25s ease, text-shadow 0.25s ease, transform 0.25s ease; outline: none; }
+header nav ul li a:hover, header nav ul li a:focus { color: var(--accent); text-shadow: 0 0 8px var(--accent), 0 0 14px var(--accent-2); transform: translateY(-2px); }
+
+/* ===== HOME / PARALLAX ===== */
+#home { padding: 0; margin: 0; height: 100vh; scroll-margin-top: 80px; }
+.home-background { background-image: url('../assets/images/fundo-com-luzes-em-ordem-circular.jpg'); background-size: cover; background-position: center; background-attachment: fixed; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; position: relative; overflow: hidden; z-index: 0; }
+@media (max-width: 768px) { .home-background { background-attachment: scroll; } }
+
+/* ===== LINHAS NEON ===== */
+.neon-lines { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.neon-lines span { position: absolute; display: block; width: 2px; height: 120%; background: linear-gradient(to bottom, var(--accent-2), var(--accent)); opacity: 0.28; filter: blur(0.6px); transform: translateY(-10%); will-change: transform; animation-timing-function: linear; }
+.neon-lines span:nth-child(1) { left: 8%; animation: move-line 4.2s linear infinite; animation-delay: 0s; }
+.neon-lines span:nth-child(2) { left: 28%; animation: move-line 5.8s linear infinite; animation-delay: 0.6s; }
+.neon-lines span:nth-child(3) { left: 58%; animation: move-line 5s linear infinite; animation-delay: 0.3s; }
+.neon-lines span:nth-child(4) { left: 82%; animation: move-line 6.5s linear infinite; animation-delay: 1s; }
+@keyframes move-line { 0% { transform: translateY(-110%); } 100% { transform: translateY(110%); } }
+
+/* ===== OVERLAY ===== */
+.home-background::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,12,30,0.35), rgba(11,12,30,0.55)); z-index: 1; backdrop-filter: blur(1px); }
+.overlay { position: relative; z-index: 2; text-align: center; padding: 2.2rem 1.2rem; max-width: 920px; margin: 0 1rem; border-radius: 12px; }
+
+/* ===== NEON NAME ===== */
+.neon-text { font-family: 'Orbitron', sans-serif; font-size: 3rem; color: var(--accent-warm); text-shadow: 0 0 6px var(--accent-warm), 0 0 12px var(--accent-warm), 0 0 18px var(--accent), 0 0 24px var(--accent); margin-bottom: 0.8rem; animation: neonPulse 2s ease-in-out infinite alternate; }
+@keyframes neonPulse { from { text-shadow: 0 0 6px var(--accent-warm),0 0 12px var(--accent-warm),0 0 18px var(--accent),0 0 24px var(--accent);} to { text-shadow: 0 0 10px var(--accent-warm),0 0 18px var(--accent-warm),0 0 26px var(--accent),0 0 34px var(--accent);} }
+
+/* ===== Typing Text ===== */
+
+.typing-text {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 840px;
+  margin: 0.8rem auto 0;
+  text-align: center;        /* centraliza no container */
+  white-space: normal;       /* deixa quebrar linhas normalmente */
+  border-right: none;        /* remove cursor piscando */
+  overflow: visible;         /* mostra todo o texto */
+  display: block;            /* garante que ocupe linha completa */
+}
+
+
+/* ===== SESSÕES ===== */
+section { padding: 100px 5%; min-height: 60vh; scroll-margin-top: 80px; transition: background 0.35s ease, transform 0.35s ease; background: transparent; position: relative; }
+.invisible { opacity: 0; transform: translateY(30px); transition: all 0.65s cubic-bezier(.22,.9,.27,1); }
+.fade-in { opacity: 1; transform: translateY(0); }
+
+/* ===== SECTION TITLES CENTRALIZADOS ===== */
+.section-title { font-family: 'Orbitron', sans-serif; font-size: 2.2rem; color: var(--accent); margin-bottom: 1rem; display: inline-block; position: relative; letter-spacing: 1px; transition: color 0.3s ease, transform 0.3s ease; text-align: center; width: 100%; }
+.section-title::after { content: ""; position: absolute; left: 0; bottom: -8px; width: 0%; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); transition: width 0.35s ease; }
+.section-title:hover { color: var(--accent-2); transform: translateY(-6px); }
+.section-title:hover::after { width: 100%; }
+section p { max-width: 880px; color: var(--text-secondary); line-height: 1.7; margin-top: 14px; transition: color 0.25s ease, transform 0.25s ease; }
+section p:hover { color: var(--text); transform: translateY(-3px); }
+
+/* ===== SOBRE CONTEUDO CENTRALIZADO ===== */
+.sobre-conteudo { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 2rem; text-align: center; }
+
+/* ===== CARDS ===== */
+.card, .curriculo-card, .projeto-card { background-color: var(--bg-card); border: 1px solid rgba(0,0,0,0.35); border-radius: 12px; padding: 1rem; margin-bottom: 1rem; transition: transform 0.35s ease, box-shadow 0.35s ease; box-shadow: 0 4px 18px rgba(0,0,0,0.45); }
+.card:hover, .curriculo-card:hover, .projeto-card:hover { transform: translateY(-6px); box-shadow: 0 12px 36px rgba(0,0,0,0.6), 0 0 18px rgba(0,180,255,0.06); border-color: rgba(0,180,255,0.12); }
+.curriculo-card.expanded { transform: translateY(-2px) scale(1.02); box-shadow: 0 18px 48px rgba(0,0,0,0.65), 0 0 26px rgba(0,180,255,0.08); }
+
+/* ===== BOTÕES ===== */
+#voltar-topo, a.button { padding: 0.55rem 0.95rem; border-radius: 8px; border: none; cursor: pointer; background: linear-gradient(90deg, var(--accent), var(--accent-2)); color: #08101a; font-weight: 600; transition: box-shadow 0.3s ease, transform 0.2s ease; box-shadow: 0 0 12px rgba(0,180,255,0.18); }
+#voltar-topo:hover, a.button:hover { transform: translateY(-3px); box-shadow: 0 0 28px rgba(0,180,255,0.37); }
+a:focus, button:focus { outline: 2px dashed rgba(0,180,255,0.18); outline-offset: 4px; }
+
+/* ===== RODAPÉ ===== */
+footer { background-color: var(--bg-card); text-align: center; padding: 1.5rem 2%; border-top: 1px solid rgba(0,180,255,0.06); color: var(--text-secondary); }
+
+/* ===== GRID DE SKILLS ===== */
+.skills-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 2rem; }
+.skill-card { background-color: var(--bg-card); color: var(--text); border-radius: 12px; padding: 0.9rem 1.2rem; font-weight: 600; font-family: 'Orbitron', sans-serif; box-shadow: 0 4px 14px rgba(0,0,0,0.35); border: 1px solid rgba(0,180,255,0.06); transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease, text-shadow 0.35s ease; cursor: default; text-align: center; }
+.skill-card:hover { transform: translateY(-6px) scale(1.05); box-shadow: 0 12px 36px rgba(0,0,0,0.6), 0 0 18px rgba(0,180,255,0.12); border-color: rgba(0,180,255,0.18); text-shadow: 0 0 4px var(--accent), 0 0 8px var(--accent-2); }
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 900px) {
+  .neon-text { font-size: 2.2rem; }
+  .typing-text { font-size: 1rem; }
+  .section-title { font-size: 1.6rem; }
+  section { padding: 70px 6%; }
+}
+
+/* ===== CONTATO CARDS ===== */
+.contato-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.contato-card {
+  background-color: var(--bg-card);
+  border: 1px solid rgba(0,180,255,0.08);
+  border-radius: 12px;
+  padding: 1.8rem 1.2rem;
+  width: 250px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+  position: relative;
+}
+
+.contato-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.6), 0 0 16px rgba(0,180,255,0.12);
+  border-color: rgba(0,180,255,0.2);
+}
+
+.contato-card i {
+  font-size: 2rem;
+  color: var(--accent);
+  margin-bottom: 0.6rem;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.contato-card:hover i {
+  transform: scale(1.15);
+  text-shadow: 0 0 10px var(--accent), 0 0 18px var(--accent-2);
+}
+
+.contato-card h3 {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--accent);
+  margin-bottom: 0.6rem;
+}
+
+.contato-card a {
+  color: var(--accent-warm);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.contato-card a:hover {
+  color: var(--accent);
+  text-shadow: 0 0 6px var(--accent), 0 0 10px var(--accent-2);
+}
+
+/* ===== BOTÃO VOLTAR AO TOPO FIXO ===== */
+#voltar-topo {
+  position: fixed;
+  bottom: 40px; /* distância mínima do rodapé */
+  right: 30px;  /* distância da borda direita */
+  padding: 0.55rem 0.95rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #08101a;
+  font-weight: 600;
+  transition: box-shadow 0.3s ease, transform 0.2s ease, opacity 0.3s ease;
+  box-shadow: 0 0 12px rgba(0,180,255,0.18);
+  z-index: 1000;
+  display: none; /* começa escondido e aparece com scroll */
+}
+
+#voltar-topo:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 28px rgba(0,180,255,0.37);
+}
+
+#voltar-topo.show {
+  display: block;
+}
+
+/* ===== CURRÍCULO GRID CENTRALIZADO E PROPORCIONAL ===== */
+.experiencia {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;    /* centraliza os cards horizontalmente */
+  margin: 2rem auto;
+  max-width: 1200px;
+}
+
+.curriculo-card {
+  flex: 1 1 280px;           /* largura mínima de 280px e máxima proporcional */
+  max-width: 350px;          /* largura máxima de cada card */
+  min-width: 280px;
+  padding: 1.5rem 1.2rem;    /* aumenta o padding interno */
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.45);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  background-color: var(--bg-card);
+  border: 1px solid rgba(0,180,255,0.06);
+}
+
+.curriculo-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.6), 0 0 18px rgba(0,180,255,0.12);
+  border-color: rgba(0,180,255,0.12);
+}
+
+.curriculo-card h3 {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--accent);
+  margin-bottom: 0.8rem;
+}
+
+.curriculo-card p, 
+.curriculo-card ul {
+  text-align: center;
+  color: var(--text-secondary);
+  margin-bottom: 0.6rem;
+  line-height: 1.6;
+}
+
+.curriculo-card ul {
+  padding-left: 0;
+  list-style-position: inside;
+}
+
+/* RESPONSIVO */
+@media (max-width: 900px) {
+  .curriculo-card {
+    flex: 1 1 90%;           /* no mobile cada card ocupa quase toda a largura */
+    max-width: 90%;
+  }
+}
+
+/* ===== MENU HAMBÚRGUER ===== */
+header nav {
+  position: relative;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 22px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  background-color: var(--accent-warm);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Aparece apenas em telas pequenas */
+@media (max-width: 768px) {
+  header nav ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(18,26,40,0.95);
+    padding: 1rem 0;
+  }
+
+  header nav ul.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    right: 2%;
+    transform: translateY(-50%);
+    z-index: 1500;
+  }
+
+  header nav ul li {
+    text-align: center;
+    margin: 0.8rem 0;
+  }
+}
+
+/* Animação do hambúrguer quando aberto */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+
+
+
+
+
+
+
+
+
