@@ -35,7 +35,7 @@ Este site apresenta minhas habilidades técnicas, formação acadêmica, experi�
 - **GitHub:** [Repositórios](https://github.com/DevbyLuiz?tab=repositories)  
 
 ## 🚀 Acesso ao projeto
-- Acesse o portfólio online: [LuizTeodoro.dev](https://devbyluiz.github.io/NovaPixel/)
+- Acesse o portfólio online: [LuizTeodoro.dev](https://devbyluiz.github.io/Portfolio/)
 
 ## 📝 Observações
 Este site foi desenvolvido por **mim**, com foco em portfólio pessoal, apresentação de habilidades técnicas e experiência profissional, adequado para recrutadores, clientes e visitantes interessados no trabalho do desenvolvedor.
