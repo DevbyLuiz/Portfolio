@@ -1,0 +1,85 @@
+/* Paleta de cores + transições */
+:root{
+  --bg:#0d1117;
+  --surface:#161b22;
+  --card:#1c2128;
+  --text:#e6e9ed;
+  --muted:#8b949e;
+  --accent:#3b82f6;
+  --tran:220ms;
+}
+
+/* Reset global */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui;background:var(--bg);color:var(--text);line-height:1.6}
+
+/* Cabeçalho fixo com transparência */
+.header{
+  position:sticky;top:0;z-index:10;
+  backdrop-filter:blur(8px);
+  background:#0d1117d9;
+  border-bottom:1px solid rgba(255,255,255,0.04);
+}
+
+.nav-wrap{max-width:1100px;margin:auto;padding:18px;display:flex;justify-content:space-between;align-items:center}
+.brand{color:var(--accent);font-weight:600}
+nav a{margin-left:18px;color:var(--muted);text-decoration:none;font-weight:500;transition:var(--tran)}
+nav a:hover{color:var(--accent)}
+
+/* Layout principal */
+main{max-width:1100px;margin:auto;padding:32px 20px}
+section{padding:60px 0;text-align:center}
+h2{color:var(--accent);margin-bottom:10px;font-size:1.6rem}
+.lead{color:var(--muted);margin-bottom:24px}
+
+/* Apresentação */
+.home h1{font-size:2.4rem;margin-bottom:12px}
+.home h1 span{color:var(--accent)}
+.home p{color:var(--muted);max-width:640px;margin:auto}
+.cta{margin-top:18px;display:inline-block;padding:10px 20px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
+.cta:hover{background:#2563eb}
+
+/* Grade das tecnologias */
+.skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:600px;margin:auto}
+.skill{background:var(--card);padding:14px;border-radius:8px;font-weight:600;border:1px solid rgba(255,255,255,0.03);transition:var(--tran)}
+.skill:hover{transform:translateY(-4px);box-shadow:0 8px 26px rgba(0,0,0,0.5)}
+
+/* Projetos */
+.projects-grid{display:grid;gap:16px;max-width:800px;margin:auto}
+.project{background:var(--card);padding:18px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);transition:var(--tran)}
+.project:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,0.55)}
+.project h3{color:var(--accent)}
+
+.btn-ghost{display:inline-block;padding:8px 12px;border-radius:8px;text-decoration:none;border:1px solid rgba(255,255,255,0.08);color:var(--muted)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+.github-all{background:var(--accent);color:#fff;padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:600}
+.github-all:hover{background:#2563eb}
+
+/* Resumo */
+.cv-desc{max-width:760px;margin:auto;color:var(--muted)}
+
+/* Contato */
+.contact-list{display:flex;gap:10px;flex-direction:column;margin-top:16px}
+.contact-list a{color:var(--accent);text-decoration:none;font-weight:600}
+
+/* Rodapé */
+footer{text-align:center;color:var(--muted);padding:20px;margin-top:40px;border-top:1px solid rgba(255,255,255,0.05)}
+
+/* Animação de revelação */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* Espaço entre grid e botão */
+.repos-container{margin-top:40px;text-align:center}
+
+
+
+
+
+
+
+
+
+
